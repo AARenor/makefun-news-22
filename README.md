@@ -8,7 +8,7 @@ A dense news front page for the make.fun competition **news-image-20261122**, co
 
 ## Stories
 
-All 22 supplied stories fit in 75 px rows: stories 1 through 11 fill the left column, and stories 12 through 22 fill the right column. The image preserves the supplied facts; this rebuild does not independently verify the reports.
+All 22 supplied stories fit in 75 px rows: stories 1 through 11 fill the left column, and stories 12 through 22 fill the right column. `artwork.py` holds this story list and the frame; `rows.py` draws the two columns. The image preserves the supplied facts; this rebuild does not independently verify the reports.
 
 1. **Europe:** COP31 collapses. Fossil-fuel deadlock ends UN talks with no deal in Antalya.
 2. **Europe:** France protests again. Sixth weekend of cost-of-living marches; clashes in Paris.
@@ -37,8 +37,8 @@ All 22 supplied stories fit in 75 px rows: stories 1 through 11 fill the left co
 
 Run `python3 main.py` locally to write `out/entry.png`. In the make.fun container, the same program writes `/output/entry.png`. The `MAKEFUN_OUTPUT_DIR` environment variable can select another output folder. The entrypoint uses only Python's standard library and does not access the network.
 
-`artwork.py` is the offline design source. Run `python3 artwork.py --out .` to recreate the checked in 1024×1024 RGB image with Pillow and DejaVu fonts. The engine and story data were written separately, then the sport labels were darkened after viewing the image. Pillow is not needed to run the competition entry.
+`artwork.py` and `rows.py` are the offline design source. Run `python3 artwork.py` to recreate the checked in 1024×1024 RGB image with Pillow and DejaVu fonts. The frame and body code were written in separate messages. After viewing the image, the fact spacing was corrected to two pixels below the headline. Pillow is not needed to run the competition entry.
 
-The final RGB image is 1024×1024 pixels and 126028 bytes. Two independent renders matched byte for byte, as did two `main.py` runs using separate `MAKEFUN_OUTPUT_DIR` folders.
+The final RGB image is 1024×1024 pixels and 128965 bytes. Two `main.py` runs using separate `MAKEFUN_OUTPUT_DIR` folders matched byte for byte.
 
 MIT license.
