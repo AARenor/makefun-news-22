@@ -8,7 +8,7 @@ A dense news front page for the make.fun competition **news-image-20261122**, co
 
 ## Stories
 
-These twenty-two supplied stories fill two columns of eleven fitted rows, in reading order below. The image preserves the supplied facts; this rebuild does not independently verify the reports.
+All 22 supplied stories fit in 75 px rows: stories 1 through 11 fill the left column, and stories 12 through 22 fill the right column. The image preserves the supplied facts; this rebuild does not independently verify the reports.
 
 1. **Europe:** COP31 collapses. Fossil-fuel deadlock ends UN talks with no deal in Antalya.
 2. **Europe:** France protests again. Sixth weekend of cost-of-living marches; clashes in Paris.
@@ -38,5 +38,7 @@ These twenty-two supplied stories fill two columns of eleven fitted rows, in rea
 Run `python3 main.py` locally to write `out/entry.png`. In the make.fun container, the same program writes `/output/entry.png`. The `MAKEFUN_OUTPUT_DIR` environment variable can select another output folder. The entrypoint uses only Python's standard library and does not access the network.
 
 `artwork.py` is the offline design source. Run `python3 artwork.py --out .` to recreate the checked in 1024×1024 RGB image with Pillow and DejaVu fonts. The engine and story data were written separately, then the sport labels were darkened after viewing the image. Pillow is not needed to run the competition entry.
+
+The final RGB image is 1024×1024 pixels and 126028 bytes. Two independent renders matched byte for byte, as did two `main.py` runs using separate `MAKEFUN_OUTPUT_DIR` folders.
 
 MIT license.
