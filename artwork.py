@@ -1,12 +1,14 @@
-import argparse
 import sys
 from dataclasses import dataclass
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-FONT_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-FONT_REGULAR = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+REGULAR = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+PAPER = "#f1ece0"
+DARK = "#16181d"
+LIGHT = "#fbf8ee"
 
 
 @dataclass(frozen=True)
@@ -51,47 +53,86 @@ PALETTE = {
 }
 
 
-def draw_masthead(image):
+def masthead(image):
     draw = ImageDraw.Draw(image)
-    draw.rectangle((0, 0, 1023, 149), fill="#16181d")
-    font = ImageFont.truetype(FONT_BOLD, 15)
-    x = 44
-    for letter in "WORLD BRIEFING":
-        draw.text((x, 22), letter, font=font, fill="#cdc7b6")
-        x += draw.textlength(letter, font=font) + 3
-    date = "SUNDAY 22 NOVEMBER 2026"
-    size = 60
-    while True:
-        font = ImageFont.truetype(FONT_BOLD, size)
-        if draw.textlength(date, font=font) <= 940:
-            break
-        size -= 1
-    draw.text((44, 48), date, font=font, fill="#fbf8ee")
+    draw.rectangle((0, 0, 1023, 149), fill=DARK)
+    tracked(draw, (44, 22), "WORLD BRIEFING", load(BOLD, 15), "#cdc7b6", 3)
+    title = "SUNDAY 22 NOVEMBER 2026"
+    draw.text((44, 48), title, font=fit(draw, title, BOLD, 940, 49), fill=LIGHT)
     draw.line((44, 120, 980, 120), fill="#4a4d54")
-    font = ImageFont.truetype(FONT_REGULAR, 11)
-    draw.text((44, 128), "THE DAY IN TWENTY-TWO STORIES / SIX REGIONS", font=font, fill="#cdc7b6")
-    draw.text((980, 128), "EVENTS AND REPORTS FROM 22 NOVEMBER 2026", anchor="ra", font=font, fill="#cdc7b6")
+    small = load(REGULAR, 11)
+    draw.text((44, 128), "THE DAY IN TWENTY-TWO STORIES - SIX REGIONS", font=small, fill="#cdc7b6")
+    right(draw, (980, 128), "EVENTS AND REPORTS FROM 22 NOVEMBER 2026", small, "#cdc7b6")
 
 
-def draw_footer(image):
+def footer(image):
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype(FONT_REGULAR, 10)
-    draw.text((44, 990), "Sources: Reuters / Al Jazeera / CNN / The Guardian / Middle East Eye / The World in Summary", font=font, fill="#5b5e66")
-    draw.text((980, 990), "22 NOVEMBER 2026", anchor="ra", font=font, fill="#5b5e66")
+    font = load(REGULAR, 10)
+    sources = "Sources: Reuters - Al Jazeera - CNN - The Guardian - Middle East Eye - The World in Summary"
+    draw.text((44, 990), sources, font=fit(draw, sources, REGULAR, 790, 10), fill="#5b5e66")
+    right(draw, (980, 990), "22 NOVEMBER 2026", font, "#5b5e66")
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--out", type=Path, default=Path(__file__).with_name("entry.png"))
-    args = parser.parse_args()
+    if __name__ == "__main__":
+        sys.modules["artwork"] = sys.modules[__name__]
     from rows import draw_rows
 
-    image = Image.new("RGB", (1024, 1024), "#f1ece0")
-    draw_masthead(image)
+    image = Image.new("RGB", (1024, 1024), PAPER)
+    masthead(image)
     draw_rows(image)
-    draw_footer(image)
-    image.save(args.out, format="PNG")
-    print(f"wrote {args.out}: {image.width}x{image.height}, {args.out.stat().st_size} bytes", file=sys.stderr)
+    footer(image)
+    output = Path(__file__).with_name("entry.png")
+    image.save(output, format="PNG")
+    print(f"{image.width}x{image.height} RGB; {output.stat().st_size} bytes")
+
+
+def load(path, size):
+    return ImageFont.truetype(path, size)
+
+
+def fit(draw, text, path, width, size, minimum=8):
+    for candidate in range(size, minimum - 1, -1):
+        font = load(path, candidate)
+        if draw.textlength(text, font=font) <= width:
+            return font
+    raise ValueError(f"Text exceeds {width} pixels: {text}")
+
+
+def tracked(draw, position, text, font, colour, spacing):
+    start, y = position
+    cursor = start
+    for index, letter in enumerate(text):
+        draw.text((cursor, y), letter, font=font, fill=colour)
+        cursor += draw.textlength(letter, font=font)
+        if index + 1 < len(text):
+            cursor += spacing
+    return cursor - start
+
+
+def right(draw, position, text, font, colour):
+    edge, y = position
+    origin = edge - draw.textlength(text, font=font)
+    draw.text((origin, y), text, font=font, fill=colour)
+
+
+def wrap(draw, text, font, width, maximum=2):
+    lines = []
+    current = ""
+    for word in text.split():
+        proposed = f"{current} {word}" if current else word
+        if draw.textlength(proposed, font=font) <= width:
+            current = proposed
+        else:
+            if not current or draw.textlength(word, font=font) > width:
+                raise ValueError(f"Word exceeds row width: {word}")
+            lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
+    if len(lines) > maximum:
+        raise ValueError(f"Story needs {len(lines)} lines: {text}")
+    return lines
 
 
 if __name__ == "__main__":
