@@ -27,14 +27,14 @@ STORIES = [
     {
         "tag": "CLIMATE  /  EURONEWS",
         "title": ("COP31 pact", "rejected"),
-        "fact": "Fossil fuel omission splits delegates.",
+        "fact": "EU and others reject the final deal.",
         "icon": "climate",
         "color": GREEN,
     },
     {
         "tag": "UKRAINE  /  AL JAZEERA",
         "title": ("Ukraine seeks", "US missiles"),
-        "fact": "Zelenskyy urges Patriot deliveries.",
+        "fact": "Zelenskyy urges Patriot deliveries; 15 killed.",
         "icon": "ukraine",
         "color": BLUE,
     },
@@ -62,7 +62,7 @@ STORIES = [
     {
         "tag": "CHESS  /  CHESS.COM",
         "title": ("World chess", "ceremony"),
-        "fact": "Sindarov draws white versus Gukesh.",
+        "fact": "Sindarov takes white in game one.",
         "icon": "chess",
         "color": GOLD,
     },
