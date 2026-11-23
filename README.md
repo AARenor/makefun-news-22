@@ -8,7 +8,7 @@ A dense news front page for the make.fun competition **news-image-20261122**, co
 
 ## Stories
 
-These are the twenty-two stories supplied for the briefing, in image reading order. The image preserves the supplied facts; this rebuild does not independently verify the reports.
+These twenty-two supplied stories fill two columns of eleven fitted rows, in reading order below. The image preserves the supplied facts; this rebuild does not independently verify the reports.
 
 1. **Europe:** COP31 collapses. Fossil-fuel deadlock ends UN talks with no deal in Antalya.
 2. **Europe:** France protests again. Sixth weekend of cost-of-living marches; clashes in Paris.
@@ -37,6 +37,6 @@ These are the twenty-two stories supplied for the briefing, in image reading ord
 
 Run `python3 main.py` locally to write `out/entry.png`. In the make.fun container, the same program writes `/output/entry.png`. The `MAKEFUN_OUTPUT_DIR` environment variable can select another output folder. The entrypoint uses only Python's standard library and does not access the network.
 
-`artwork.py` is the offline design source. It recreates the checked in image with Pillow and the DejaVu fonts installed on the design machine. Pillow is not needed to run the competition entry.
+`artwork.py` is the offline design source. Run `python3 artwork.py --out .` to recreate the checked in 1024×1024 RGB image with Pillow and DejaVu fonts. The engine and story data were written separately, then the sport labels were darkened after viewing the image. Pillow is not needed to run the competition entry.
 
 MIT license.
