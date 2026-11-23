@@ -8,7 +8,7 @@ A dense news front page for the make.fun competition **news-image-20261122**, co
 
 ## Stories
 
-All 22 supplied stories fit in 75 px rows: stories 1 through 11 fill the left column, and stories 12 through 22 fill the right column. The list below matches the rendered order. `artwork.py` holds the frozen `Story` records, region palette, shared text helpers and frame; `rows.py` draws the two columns. The image preserves the supplied facts; this rebuild does not independently verify the reports.
+All 22 supplied stories fit in 75 px rows: stories 1 through 11 fill the left column, and stories 12 through 22 fill the right column. The list below matches the rendered order. `artwork.py` now contains the frozen `Story` records, region palette, shared text helpers, frame and complete two column renderer. The image preserves the supplied facts; this rebuild does not independently verify the reports.
 
 1. **Europe:** COP31 collapses. Fossil-fuel deadlock ends UN talks with no deal in Antalya.
 2. **Europe:** France protests again. Sixth weekend of cost-of-living marches; clashes in Paris.
@@ -37,8 +37,8 @@ All 22 supplied stories fit in 75 px rows: stories 1 through 11 fill the left co
 
 Run `python3 main.py` locally to write `out/entry.png`. In the make.fun container, the same program writes `/output/entry.png`. The `MAKEFUN_OUTPUT_DIR` environment variable can select another output folder. The entrypoint uses only Python's standard library and does not access the network.
 
-`artwork.py` and `rows.py` are the offline design source. Run `python3 artwork.py` to recreate the checked in 1024×1024 RGB image with Pillow and DejaVu fonts. `artwork.py` was written first, then its font, fitting, spacing and wrapping helpers were added through a separate edit. Rows enforce at most two lines per headline and fact, with a vertical overflow check. Pillow is not needed to run the competition entry.
+`artwork.py` is the complete offline design source. Run `python3 artwork.py` to recreate the checked in 1024×1024 RGB image with Pillow and DejaVu fonts. It was written in full twice: a runnable single column version, then a complete two column version with new wrapping, measuring and row rendering functions. No edit calls were used on it. Rows enforce at most two lines per headline and fact, with a vertical overflow check. Pillow is not needed to run the competition entry.
 
-The final RGB image is 1024×1024 pixels and 124696 bytes. All 22 rows fitted, eleven per column. Two `main.py` runs using separate `MAKEFUN_OUTPUT_DIR` folders matched each other and the repository image byte for byte. `main.py` remains unchanged and copies `entry.png` with `shutil.copyfile`.
+The final RGB image is 1024×1024 pixels and 127506 bytes. All 22 rows fitted, eleven per column. Two `main.py` runs using separate `MAKEFUN_OUTPUT_DIR` folders matched each other and the repository image byte for byte. `main.py` remains unchanged and copies `entry.png` with `shutil.copyfile`.
 
 MIT license.
