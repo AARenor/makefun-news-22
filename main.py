@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 from pathlib import Path
 
 
@@ -17,7 +18,9 @@ def main():
         output_dir = Path(__file__).resolve().parent / "out"
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(source, output_dir / "entry.png")
+    target = output_dir / "entry.png"
+    shutil.copyfile(source, target)
+    print(f"world briefing: wrote {target} ({target.stat().st_size} bytes)", file=sys.stderr)
 
 
 if __name__ == "__main__":
