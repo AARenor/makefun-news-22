@@ -8,30 +8,30 @@ A dense news front page for the make.fun competition **news-image-20261122**, co
 
 ## Stories
 
-The requested briefing treats all items as reports from 22 November 2026; source dates are not all independently confirmed. The supplied source list names Reuters, Al Jazeera, CNN, The Guardian, Middle East Eye, Cape Times, AllAfrica and Weather.com without mapping outlets to stories. Unconfirmed attributions and inaccessible pages are marked below. The requested headlines are preserved.
+These are the twenty-two stories supplied for the briefing, in image reading order. The image preserves the supplied facts; this rebuild does not independently verify the reports.
 
-1. **Europe:** COP31 collapses ([CNN](https://www.cnn.com/2026/11/22/climate/cop31-summit-collapses-in-fossil-fuel-failure)).
-2. **Europe:** France protests again ([France 24](https://www.france24.com/en/asia-pacific/20261122-the-week-in-pictures-xi-hosts-trump-and-putin-cop31-and-more-french-protests)).
-3. **Europe:** EU and Indonesia sign. A trade deal after ten years ends 98.5 percent of tariffs.
+1. **Europe:** COP31 collapses. Fossil-fuel deadlock ends UN talks with no deal in Antalya.
+2. **Europe:** France protests again. Sixth weekend of cost-of-living marches; clashes in Paris.
+3. **Europe:** EU and Indonesia sign. Trade deal after ten years ends 98.5 percent of tariffs.
 4. **Europe:** Finland airspace breach. Helsinki suspects a Russian helicopter crossed its airspace.
-5. **Africa:** Russian ship sunk ([Al Jazeera](https://www.aljazeera.com/news/2026/11/22/suspected-drone-strike-hits-russian-vessel-in-libya)).
-6. **Africa:** Malta-flagged ship hit (supplied briefing; outlet attribution unverified).
-7. **Africa:** Drones hit Sudan. Sudan's army blames Ethiopia for strikes that damaged a UN building ([Al Jazeera](https://www.aljazeera.com/news/2026/11/22/rsf-drones-kill-four-in-khartoum)).
-8. **Africa:** Nigeria boat disaster. At least 24 mourners died when their boat capsized ([P.M. News](https://pmnewsnigeria.com/2026/11/22/bayelsa-boat-disaster-fg-moves-to-uncover-cause)).
-9. **Africa:** Kenya internet metering. A proposed law would meter internet use; privacy fears grow.
-10. **Asia:** Korea minister quits ([The Korea Times](https://koreatimes.co.kr/southkorea/education/20261122/education-minister-resigns-amid-backlash-over-csat-anti-cheating-measures)).
-11. **Asia:** Bangladesh unrest (supplied briefing; outlet attribution unverified).
-12. **Asia:** Rajasthan crashes ([NewsBytes](https://newsbytesapp.com/news/india/two-rajasthan-road-crashes-kill-12-several-injured-sunday/tldr)).
-13. **Asia:** Indonesia factory fire ([DW](https://www.dw.com/en/dozens-missing-as-deadly-fire-hits-indonesian-candy-factory/a-80012342)).
-14. **Asia:** Golden Horse Awards ([Taipei Golden Horse Film Festival](https://www.goldenhorse.org.tw/awards/ceremony/info/?r=en), ceremony on 22 November 2026; publication date unconfirmed).
-15. **Asia:** Bahrain strike wounds two ([Middle East Eye](https://www.middleeasteye.net/live-blog/live-blog-update/bahrain-says-iranian-strike-wounds-two-one-critically), publication date unconfirmed).
-16. **Middle East:** Settlers attack villages. Israeli settlers burn Palestinian villages; Eisenkot condemns.
-17. **Middle East:** Hormuz tankers ablaze. Iran's navy says tankers that broke its rules were set alight.
-18. **Americas:** Democrats reach 258 ([The Washington Post](https://www.washingtonpost.com/politics/2026/11/22/house-democrats-will-have-largest-majority-21st-century-after-latest-race-call/)).
-19. **Americas:** East Coast storm ([East Idaho News](https://www.eastidahonews.com/2026/11/east-coast-storm-could-disrupt-holiday-travel-after-battering-florida/), page inaccessible).
-20. **Americas:** Brazil thunderstorm (supplied briefing; outlet attribution unverified).
-21. **Sport and culture:** Alcaraz takes ATP Finals ([Reuters](https://www.reuters.com/sports/tennis/alcaraz-charges-past-world-number-one-zverev-clinch-atp-finals-title-2026-11-22/), page inaccessible).
-22. **Sport and culture:** Marquez seals eighth title ([Reuters](https://www.reuters.com/sports/marquez-wins-eighth-motogp-title-portugal-2026-11-22/), page inaccessible).
+5. **Africa:** Russian ship sunk. Sea drones sink the corvette Merkury at Benghazi port.
+6. **Africa:** Malta-flagged ship hit. A second drone attack strikes a merchant ship off Benghazi.
+7. **Africa:** Drones hit Sudan. Sudan's army blames Ethiopia for strikes damaging a UN building.
+8. **Africa:** Nigeria boat disaster. At least 24 mourners died when their boat capsized.
+9. **Africa:** Kenya internet metering. Proposed law would meter internet use; privacy fears grow.
+10. **Asia:** Korea minister quits. Education minister resigns over AI-cheating exam row.
+11. **Asia:** Bangladesh unrest. Garment wage protests spread; thousands of border guards deploy.
+12. **Asia:** Rajasthan crashes. Two road accidents in Rajasthan kill twelve people.
+13. **Asia:** Indonesia factory fire. Three dead and 36 missing in a Serang confectionery fire.
+14. **Asia:** Golden Horse Awards. A Hong Kong film wins best feature in Taipei.
+15. **Middle East:** Bahrain strike wounds two. Bahrain says Iranian strikes injured two people.
+16. **Middle East:** Settlers attack villages. Israeli settlers set fires in Palestinian villages; Eisenkot condemns.
+17. **Middle East:** Hormuz tankers ablaze. Iran's navy says tankers breaking its rules were set alight.
+18. **Americas:** Democrats reach 258. Biggest House majority since 1992 after a North Carolina recount.
+19. **Americas:** East Coast storm. Heavy rain floods roads along the I-95 corridor before Thanksgiving.
+20. **Americas:** Brazil thunderstorm. Five killed and 250 hurt in Tupancireta, Rio Grande do Sul.
+21. **Sport and culture:** Alcaraz takes ATP Finals. He beats Zverev 6-2, 7-6 to win his first title.
+22. **Sport and culture:** Marquez seals eighth title. Eighth MotoGP crown equals Agostini's record.
 
 ## Run
 
